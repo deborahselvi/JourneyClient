@@ -8,6 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Journey';
 
-  lat = 13;
-  long = 80;
 }
