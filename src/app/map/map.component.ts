@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Position } from '../model/position';
+import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-map',
@@ -7,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
     
-  lat = 13;
-  long = 80;
-  
-  constructor() { }
+  position: Position = new Position();
+
+  constructor(
+    private locationService: LocationService
+  ) { }
 
   ngOnInit(): void {
-
+    this.position = this.locationService.position;
   }
 
 }
