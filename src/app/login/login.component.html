@@ -1,11 +1,25 @@
 <div>
-    <div>
-        <input (ngModel) = "username" placeholder="User Name">
+    <button (click) = "toggleForm('create')">Create Map</button>
+    <div *ngIf = "viewForm.create">
+        <form [formGroup] = "createMapForm" (ngSubmit) = "createMap()">
+            <div>
+                <input formControlName = "createUserName" placeholder="User Name">
+            </div>  
+            <button type = "submit">Create</button>
+        </form>
     </div>
-    <div>
-        <button (click) = "createMap()">Create Map</button>
-    </div>
-    <div>
-        <button (click) = "joinMap()">Join Map</button>
+</div>
+<div>
+    <button type="submit" (click) = "toggleForm('join')">Join Map</button>
+    <div *ngIf = "viewForm.join">
+        <form [formGroup] = "joinMapForm" (ngSubmit) = "joinMap()">
+            <div>
+                <input formControlName = "joinUserName" placeholder="User Name">
+            </div>
+            <div>
+                <input formControlName = "roomId" [(ngModel)] = "user.roomId" placeholder="Room Id">
+            </div>   
+            <button type = "submit">Join</button>
+        </form>
     </div>
 </div>
